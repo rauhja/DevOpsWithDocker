@@ -1,0 +1,8 @@
+docker pull devopsdockeruh/simple-web-service:alpine
+docker pull devopsdockeruh/simple-web-service:ubuntu
+
+docker images
+
+docker run -d --rm -it --name looper devopsdockeruh/simple-web-service:alpine
+docker exec -it looper tail -f ./text.log
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
