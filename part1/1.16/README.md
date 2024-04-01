@@ -1,7 +1,7 @@
 Used following docker image for the app:
 https://hub.docker.com/r/devopsdockeruh/coursepage
 
-Used the following commands to deploy the app to Heroku:
+Used following commands to deploy the app to Heroku:
 
 ```
 heroku login
