@@ -1,3 +1,2 @@
-## express app
-
-Access with browser http://localhost:8080
+Link to the GitHub repository:
+https://github.com/rauhja/express-app
