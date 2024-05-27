@@ -1,14 +1,19 @@
-Used following docker image for the app:
-https://hub.docker.com/r/devopsdockeruh/coursepage
+# 1.16 CLOUD DEPLOYMENT
+
+Deployed dockerized fastapi app to Heroku.
+
+[Dockerfile](./Dockerfile)
+
+`--platform=linux/amd64` is added to the `FROM` command to specify the platform as linux/amd64.
 
 Used following commands to deploy the app to Heroku:
 
 ```
 heroku login
-docker pull devopsdockeruh/coursepage
-docker tag f9d1d1db8d35 registry.heroku.com/dwd-24/web
-docker push registry.heroku.com/dwd-24/web
-heroku container:release web --app=dwd-24
+heroku stack:set container
+heroku container:login
+heroku container:push web
+heroku container:release web
 ```
 
-The app is now running at https://dwd-24-880247621cba.herokuapp.com
+The app is now running at [https://dwd-24-1bd7600d895e.herokuapp.com](https://dwd-24-1bd7600d895e.herokuapp.com)
