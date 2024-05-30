@@ -8,24 +8,10 @@ RUN npm install
 
 COPY . .
 
-ENV REACT_APP_BACKEND_URL=http://localhost:8080
-
 RUN npm run build
 
-FROM alpine:3.18
+FROM nginx:1.19-alpine
 
-RUN apk add --no-cache nodejs npm && \
-    npm install -g serve && \
-    addgroup -S appgroup && adduser -S appuser -G appgroup
+COPY --from=builder /usr/src/app/build ./usr/share/nginx/html
 
-WORKDIR /usr/src/app
-
-COPY --from=builder /usr/src/app/build ./build
-
-RUN chown -R appuser:appgroup /usr/src/app
-
-USER appuser
-
-EXPOSE 5678
-
-CMD ["serve", "-s", "-l", "5678", "build"]
+CMD ["nginx", "-g", "daemon off;"]
