@@ -1,4 +1,4 @@
-# DevOpsWithDocker
+# DevOps With Docker 2024
 
 Exercise submissions for the course [DevOps with Docker](https://devopswithdocker.com/)
 
